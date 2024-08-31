@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "goUP Tab",
+  "version": "1.0",
+  "description": "goUP Tab을 시작페이지로 설정해요",
+  "host_permissions": ["<all_urls>"],
+  "permissions": [
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/index.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "page/index.html"
+  }
+}
