@@ -1,64 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>goUP Tab</title>
-    <link rel="stylesheet" href="/page/style.css">
-</head>
-<body>
-    <div class="container">
-        <header class="title">
-            <p>goUP Tab</p>
-        </header>
-        
-        <div class="search-bar">
-            <form id="search-form" action="https://duckduckgo.com/" method="get">
-                <input type="text" name="q" placeholder="DuckDuckGo 검색" id="search-input">
-                <button type="submit">검색</button>
-            </form>
-        </div>
-        
-        <div class="quick-links">
-            <div id="links-container" class="grid">
-                <!-- 바로가기 표시하는곳 -->
-            </div>         
-        </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>goUP Tab</title>
+        <link rel="stylesheet" href="/page/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <header class="title">
+                <p>goUP Tab</p>
+            </header>
 
-        <div class="footer">
-            <button id="add-link-btn" class="add-link">+</button>
-            
-            <div class="news">
-                <button id="openTelegramModal">#FreeDurov</button>
+            <div class="search-bar">
+                <form
+                    id="search-form"
+                    action="https://duckduckgo.com/"
+                    method="get"
+                >
+                    <input
+                        type="text"
+                        name="q"
+                        placeholder="DuckDuckGo 검색"
+                        id="search-input"
+                    />
+                    <button type="submit">검색</button>
+                </form>
+            </div>
+
+            <div class="quick-links">
+                <div id="links-container" class="grid">
+                    <!-- 바로가기 표시하는곳 -->
+                </div>
+            </div>
+
+            <div class="footer">
+                <button id="add-link-btn" class="add-link">+</button>
+
+                <div class="news">
+                    <button id="openTelegramModal">#FreeDurov</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- 텔레그램 모달 -->
-    <div id="telegram-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>#FreeDurov</h3>
-            <div id="telegram-widgets">
-                <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="theanskr_news/26" data-dark="1" data-color="#1E90FF"></script>
+        <!-- 텔레그램 모달 -->
+        <div id="telegram-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>#FreeDurov</h3>
+                <div id="telegram-widgets">
+                    <script
+                        async
+                        src="https://telegram.org/js/telegram-widget.js?22"
+                        data-telegram-post="theanskr_news/26"
+                        data-dark="1"
+                        data-color="#1E90FF"
+                    ></script>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- 바로가기 모달 -->
-    <div id="link-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>바로가기 설정</h3>
-            <input type="text" id="site-name" placeholder="사이트 이름">
-            <input type="text" id="site-url" placeholder="사이트 URL">
-            <div class="modal-buttons">
-                <button id="delete-link-btn">삭제</button>
-                <button id="save-link-btn">저장</button>
+        <!-- 바로가기 모달 -->
+        <div id="link-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>바로가기 설정</h3>
+                <input type="text" id="site-name" placeholder="사이트 이름" />
+                <input type="text" id="site-url" placeholder="사이트 URL" />
+                <div class="modal-buttons">
+                    <button id="delete-link-btn">삭제</button>
+                    <button id="save-link-btn">저장</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="page/script.js"></script>
-</body>
+        <script src="/page/script.js"></script>
+    </body>
 </html>
