@@ -1,17 +1,25 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>goUP Tab Popup</title>
+        <title data-i18n="title">goUP Tab Popup</title>
         <link rel="stylesheet" href="style.css" />
+        <style>
+            /* 팝업 크기 조정 */
+            body {
+                width: 400px;
+                height: 300px;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
             <header class="title">
-                <p>goUP Tab이 작동중이에요</p>
+                <p data-i18n="working">goUP Tab is working</p>
             </header>
-            <p>Chromium 및 Firefox용 1.1</p>
+            <p data-i18n="version">v1.3</p>
+            <p data-i18n="supported">Supported on:<br>Firefox, Librewolf, MullVad, Tor, Brave, Chrome</p>
         </div>
 
         <script src="script.js"></script>

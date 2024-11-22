@@ -8,14 +8,15 @@ const deleteLinkBtn = document.getElementById('delete-link-btn');
 const siteNameInput = document.getElementById('site-name');
 const siteURLInput = document.getElementById('site-url');
 const container = document.querySelector('.container');
-const openTelegramModalBtn = document.getElementById('openTelegramModal');
-const telegramModal = document.getElementById('telegram-modal');
-const closeTelegramModalBtn = telegramModal.querySelector('.close');
 let currentEditLink = null;
+const languageSelector = document.getElementById('language-selector'); // 언어 선택기 추가
 
-// 로컬스토리지에서 링크 가져오기
+// 브라우저 언어 감지 및 초기 설정
 window.onload = function() {
-    loadLinks();
+    const userLang = navigator.language || navigator.userLanguage; // 브라우저 언어 감지
+    const lang = userLang.startsWith('ko') ? 'ko' : 'en'; // 한국어 또는 영어 설정
+    changeLanguage(lang); // 언어 변경 함수 호출
+    loadLinks(); // 링크 로드
 };
 
 // 모달 열기
@@ -168,28 +169,6 @@ function saveLinksToLocalStorage() {
     localStorage.setItem('quickLinks', JSON.stringify(linksData));
 }
 
-// 모달 열기
-openTelegramModalBtn.addEventListener('click', function() {
-    /*
-    telegramModal.style.display = 'flex';
-
-    setTimeout(() => {
-        telegramModal.querySelector('.modal-content').scrollTop = 0;
-        telegramModal.classList.add('show');
-    }, 10);
-    */
-    window.open('https://t.me/theanskr_news/26');
-});
-
-// 모달 닫기
-closeTelegramModalBtn.addEventListener('click', function() {
-    telegramModal.classList.remove('show');
-
-    setTimeout(() => {
-        telegramModal.style.display = 'none';
-    }, 300);
-});
-
 // 모달 닫기
 document.querySelectorAll('.close').forEach(closeBtn => {
     closeBtn.addEventListener('click', function() {
@@ -201,4 +180,46 @@ document.querySelectorAll('.close').forEach(closeBtn => {
             modal.style.display = 'none';
         }, 300);
     });
+});
+
+// 언어 변경 함수
+function changeLanguage(language) {
+    const elements = {
+        title: document.querySelector('.title p'),
+        searchPlaceholder: document.getElementById('search-input'),
+        searchButton: document.querySelector('.search-bar button'),
+        addLinkBtnText: document.getElementById('add-link-btn'),
+        modalTitle: document.querySelector('.modal-content h3'),
+        siteNamePlaceholder: document.getElementById('site-name'),
+        siteURLPlaceholder: document.getElementById('site-url'),
+        deleteLinkBtnText: document.getElementById('delete-link-btn'),
+        saveLinkBtnText: document.getElementById('save-link-btn')
+    };
+
+    if (language === 'en') {
+        elements.title.textContent = 'goUP Tab';
+        elements.searchPlaceholder.placeholder = 'Search DuckDuckGo';
+        elements.searchButton.textContent = 'Search';
+        elements.addLinkBtnText.textContent = '+';
+        elements.modalTitle.textContent = 'Set Shortcut';
+        elements.siteNamePlaceholder.placeholder = 'Site Name';
+        elements.siteURLPlaceholder.placeholder = 'Site URL';
+        elements.deleteLinkBtnText.textContent = 'Delete';
+        elements.saveLinkBtnText.textContent = 'Save';
+    } else {
+        elements.title.textContent = 'goUP Tab';
+        elements.searchPlaceholder.placeholder = 'DuckDuckGo 검색';
+        elements.searchButton.textContent = '검색';
+        elements.addLinkBtnText.textContent = '+';
+        elements.modalTitle.textContent = '바로가기 설정';
+        elements.siteNamePlaceholder.placeholder = '사이트 이름';
+        elements.siteURLPlaceholder.placeholder = '사이트 URL';
+        elements.deleteLinkBtnText.textContent = '삭제';
+        elements.saveLinkBtnText.textContent = '저장';
+    }
+}
+
+// 언어 선택기 이벤트 리스너
+languageSelector.addEventListener('change', function() {
+    changeLanguage(this.value);
 });

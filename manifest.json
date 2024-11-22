@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "goUP Tab",
-  "version": "1.2",
+  "version": "1.3",
   "description": "goUP Tab을 시작페이지로 설정해요",
   "action": {
     "default_popup": "popup/index.html"
